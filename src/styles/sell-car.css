@@ -1,0 +1,13 @@
+#typewriter-text {
+  animation: typewriter-effect 1.0s ease-in;
+}
+
+@keyframes typewriter-effect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

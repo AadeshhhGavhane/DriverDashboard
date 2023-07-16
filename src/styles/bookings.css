@@ -1,0 +1,47 @@
+.bookings {
+  margin-top: 80px;
+  padding: 0px 25px;
+  padding-bottom: 50px;
+}
+
+.booking__wrapper {
+  margin-bottom: 20px;
+}
+
+.booking__title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.MuiTabs-root {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.MuiTabs-flexContainer {
+  justify-content:left;
+}
+
+.MuiTab-root {
+  font-size: 1.0rem;
+  color: white !important;
+}
+
+.MuiTab-textColorSecondary.Mui-selected {
+  color: yellow !important;
+}
+
+#typewriter-text {
+  animation: typewriter-effect 1.0s ease-in;
+}
+
+@keyframes typewriter-effect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
