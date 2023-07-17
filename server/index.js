@@ -19,22 +19,88 @@ app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
 
-// for getting email and name from front end
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
-app.post("/api/getmailname", (req, res) => {
+app.get("/api/getprofiledata/:email", (req, res) => {
+  const email = req.params.email;
+  const selectQuery = `SELECT * FROM driver WHERE email = '${email}'`;
+
+  db.query(selectQuery, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error fetching profile data from the database");
+      return;
+    }
+
+    if (result.length === 0) {
+      res.status(404).send("Driver profile not found");
+    } else {
+      res.send(result[0]);
+    }
+  });
+});
+
+app.post("/api/updateprofiledata", (req, res) => {
+  const {
+    email,
+    name,
+    adharcard,
+    pancard,
+    licenseno,
+    number,
+    dob,
+    gender,
+  } = req.body;
+  const updateQuery = `
+    UPDATE driver
+    SET 
+      name = ?,
+      adharcard = ?,
+      pancard = ?,
+      licenseno = ?,
+      number = ?,
+      dob = ?,
+      gender = ?
+    WHERE email = ?
+  `;
+
+  const values = [
+    name,
+    adharcard,
+    pancard,
+    licenseno,
+    number,
+    dob,
+    gender,
+    email,
+  ];
+
+  db.query(updateQuery, values, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error updating profile data in the database");
+      return;
+    }
+
+    res.send("Profile data updated successfully");
+  });
+
+  app.post("/api/getmailname", (req, res) => {
     const { email, name } = req.body;
     let checkEmailQuery = `SELECT COUNT(*) AS count FROM driver WHERE email = '${email}'`;
     let insertQuery = `INSERT INTO driver (email, name) SELECT '${email}', '${name}' WHERE NOT EXISTS (SELECT 1 FROM driver WHERE email = '${email}')`;
-  
+
     db.query(checkEmailQuery, (err, result) => {
       if (err) {
         console.log(err);
         res.status(500).send("Error checking email existence in the database");
         return;
       }
-  
+
       const count = result[0].count;
-  
+
       if (count > 0) {
         // Email already exists
         res.send("Email already exists in the table");
@@ -53,6 +119,7 @@ app.post("/api/getmailname", (req, res) => {
     });
   });
 
-app.get("/", (req, res) => {
+  app.get("/", (req, res) => {
     res.send("Hello")
+});
 });

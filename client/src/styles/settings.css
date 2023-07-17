@@ -88,6 +88,45 @@ label {
   outline: none;
 }
 
+/* settings.css (or your preferred CSS file) */
+.form__group div select {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid #b7ffe913;
+  color: var(--heading-color);
+  font-size: 1rem;
+}
+
+.form__group div select::placeholder {
+  color: var(--small-text-color);
+  font-size: 0.9rem;
+}
+
+.form__group div select:focus {
+  outline: none;
+  /* Add a different border color and box shadow to indicate focus */
+  border-color: var(--dropdown-focus-border-color); /* Set the desired border color on focus */
+  box-shadow: 0 0 5px var(--dropdown-focus-box-shadow-color); /* Set the desired box shadow on focus */
+}
+
+.form__group div select option {
+  /* Style for the options */
+  background: var(--dropdown-background); /* Set the desired background color */
+  color: var(--heading-color); /* Set the desired text color */
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.form__group div select option:hover {
+  /* Style for the hovered option */
+  background: var(--dropdown-hover-background); /* Set the desired background color on hover */
+  color: var(--dropdown-hover-color); /* Set the desired text color on hover */
+}
+
+
+
 .profile-img__desc {
   color: var(--small-text-color);
   margin-bottom: 10px;
