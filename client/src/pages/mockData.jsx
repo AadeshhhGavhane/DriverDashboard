@@ -68,15 +68,6 @@ export const mockDataContacts = [
     pincode: "51523",
     registrarId: 123512,
   },
-  {
-    id: 8,
-    name: "Rossini Frances",
-    fare: "Rs.350",
-    from: "kalyan",
-    to: "Thane",
-    pincode: "44215",
-    registrarId: 512315,
-  },
 ]
 export const mockDataVehicles = [
   {

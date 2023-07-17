@@ -2,35 +2,40 @@ import React from "react";
 import "../styles/settings.css";
 
 const Settings = () => {
-  
   return (
     <div className="settings">
       <div className="settings__wrapper">
         <h2 className="settings__title">Settings</h2>
 
         <div className="settings__top">
-          <button className="setting__btn">My Details</button>
           <button className="setting__btn active__btn">Profile</button>
-          <button className="setting__btn">Password</button>
-          <button className="setting__btn">Email</button>
-          <button className="setting__btn">Notification</button>
         </div>
 
-        <div className="details__form">
-          <h2 className="profile__title">Profile</h2>
-          <p className="profile__desc">
-            Update your photo and personal details here
-          </p>
-          <form>
+        <form>
+          <div className="details__form">
+            <h2 className="profile__title">Profile</h2>
+            <p className="profile__desc">Update your photo and personal details here</p>
+
             <div className="form__group">
               <div>
-                <label>Live in</label>
-                <input type="text" placeholder="Sylhet, Bangladesh" />
+                <label>Name</label>
+                <input type="text" placeholder="Enter name" />
               </div>
 
               <div>
-                <label>Street</label>
-                <input type="text" placeholder="SYL 3108" />
+                <label>Adharcard Number</label>
+                <input type="text" placeholder="Enter Adharcard" />
+              </div>
+            </div>
+
+            <div className="form__group">
+              <div>
+                <label>Pancard Number</label>
+                <input type="text" placeholder="Enter Pancard" />
+              </div>
+              <div>
+                <label>License Number</label>
+                <input type="text" placeholder="Enter license" />
               </div>
             </div>
 
@@ -61,9 +66,7 @@ const Settings = () => {
             <div className="form__group">
               <div>
                 <label>Your Photo</label>
-                <p className="profile-img__desc">
-                  This will be displayed in your profile
-                </p>
+                <p className="profile-img__desc">This will be displayed in your profile</p>
                 <input type="file" placeholder="choose file" />
               </div>
 
@@ -72,8 +75,8 @@ const Settings = () => {
                 <button className="update__btn">Update</button>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );
