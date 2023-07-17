@@ -1,0 +1,29 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust this value to control the height of the centered container */
+    color:white
+  }
+
+  .setting__btn {
+    border: none;
+    border: none;
+    padding: 7px 25px;
+    background: transparent;
+    border-radius: 5px;
+    color: var(--heading-color);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .active__btn {
+    background: #b7ffe913;
+  }
+
+  .sidebar__top {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+  }

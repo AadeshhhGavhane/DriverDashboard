@@ -54,8 +54,11 @@ const TopNav = () => {
               <SearchIcon />
             </IconButton>
           </Box>
+
+          <div className="top__nav-right">
           {isAuthenticated ? (
             <button
+            className="setting__btn active__btn"
               onClick={() =>
                 logout({ logoutParams: { returnTo: window.location.origin } })
               }
@@ -63,10 +66,8 @@ const TopNav = () => {
               Log Out
             </button>
           ) : (
-            <button onClick={() => loginWithRedirect()}>LogIn</button>
+            <button className="setting__btn active__btn" onClick={() => loginWithRedirect()}>LogIn</button>
           )}
-
-          <div className="top__nav-right">
             <div className="notification">
               <Badge badgeContent={99} color="secondary">
                 <NotificationsIcon className="notification-icon" />
@@ -74,7 +75,7 @@ const TopNav = () => {
             </div>
             <div className="profile">
               <Link to="/settings">
-                <img src={profileImg} alt="" />
+                <img src={isAuthenticated && user.picture} alt="" />
               </Link>
             </div>
           </div>
