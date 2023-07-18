@@ -58,7 +58,7 @@ const TopNav = () => {
           <div className="top__nav-right">
           {isAuthenticated ? (
             <button
-            className="setting__btn active__btn"
+            className="hiji hlo"
               onClick={() =>
                 logout({ logoutParams: { returnTo: window.location.origin } })
               }
@@ -66,7 +66,7 @@ const TopNav = () => {
               Log Out
             </button>
           ) : (
-            <button className="setting__btn active__btn" onClick={() => loginWithRedirect()}>LogIn</button>
+            <button className="hiji hlo" onClick={() => loginWithRedirect()}>LogIn</button>
           )}
             <div className="notification">
               <Badge badgeContent={99} color="secondary">

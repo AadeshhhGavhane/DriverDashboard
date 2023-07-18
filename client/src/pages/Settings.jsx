@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/settings.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Settings = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -38,7 +40,8 @@ const Settings = () => {
     });
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = (e) => {
+    e.preventDefault();
     // Convert phone number to a number (if needed)
     const phoneNumber = parseInt(profileData.number, 10);
 
@@ -50,18 +53,14 @@ const Settings = () => {
       .post("/api/updateProfileData", updatedProfileData)
       .then((response) => {
         console.log(response.data); // Success message from the backend
+        toast.success("Information Updated!");
       });
   };
 
   return (
     <div className="settings">
+      <ToastContainer />
       <div className="settings__wrapper">
-        <h2 className="settings__title">Settings</h2>
-
-        <div className="settings__top">
-          <button className="setting__btn active__btn">Profile</button>
-        </div>
-
         <form>
           <div className="details__form">
             <h2 className="profile__title">Profile</h2>
@@ -73,6 +72,7 @@ const Settings = () => {
               <div>
                 <label>Name</label>
                 <input
+                  required
                   type="text"
                   placeholder="Enter name"
                   value={profileData.name}
@@ -85,6 +85,7 @@ const Settings = () => {
               <div>
                 <label>Adharcard Number</label>
                 <input
+                  required
                   type="text"
                   placeholder="Enter Adharcard"
                   value={profileData.adharcard}
@@ -95,6 +96,7 @@ const Settings = () => {
                     })
                   }
                   maxLength={12}
+                  minLength={12}
                 />
               </div>
             </div>
@@ -103,6 +105,7 @@ const Settings = () => {
               <div>
                 <label>Pancard Number</label>
                 <input
+                  required
                   type="text"
                   placeholder="Enter Pancard"
                   value={profileData.pancard}
@@ -110,11 +113,13 @@ const Settings = () => {
                     setProfileData({ ...profileData, pancard: e.target.value })
                   }
                   maxLength={10}
+                  minLength={10}
                 />
               </div>
               <div>
                 <label>License Number</label>
                 <input
+                  required
                   type="text"
                   placeholder="Enter license"
                   value={profileData.licenseno}
@@ -125,6 +130,7 @@ const Settings = () => {
                     })
                   }
                   maxLength={15}
+                  minLength={15}
                 />
               </div>
             </div>
@@ -146,6 +152,7 @@ const Settings = () => {
               <div>
                 <label>Phone Number</label>
                 <input
+                  required
                   type="text"
                   placeholder="Phone Number"
                   value={profileData.number}
@@ -153,6 +160,7 @@ const Settings = () => {
                     setProfileData({ ...profileData, number: e.target.value })
                   }
                   maxLength={10}
+                  minLength={10}
                 />
               </div>
             </div>
@@ -161,6 +169,7 @@ const Settings = () => {
               <div>
                 <label>Date of Birth</label>
                 <input
+                  required
                   type="date"
                   placeholder="dd/mm/yyyy"
                   value={profileData.dob}
@@ -185,17 +194,11 @@ const Settings = () => {
             </div>
 
             <div className="form__group">
-              <div>
-                <label>Your Photo</label>
-                <p className="profile-img__desc">
-                  This will be displayed in your profile
-                </p>
-                <input type="file" placeholder="choose file" />
-              </div>
-
               <div className="profile__img-btns">
-                <button className="dlt__btn">Delete</button>
-                <button className="update__btn" onClick={handleUpdate}>
+                <button
+                  className="setting__btn active__btn"
+                  onClick={handleUpdate}
+                >
                   Update
                 </button>
               </div>

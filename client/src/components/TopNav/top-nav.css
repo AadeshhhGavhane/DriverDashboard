@@ -81,3 +81,18 @@
   color: white;
   font-size: 0.8rem;
 }
+
+.hiji {
+  border: none;
+  border: none;
+  padding: 7px 25px;
+  background: transparent;
+  border-radius: 5px;
+  color: var(--heading-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hlo {
+  background: #b7ffe913;
+}
