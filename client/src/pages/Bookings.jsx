@@ -3,6 +3,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Tabs, Tab } from '@mui/material';
 import Typewriter from "typewriter-effect/dist/core";
 import Contacts from "./contacts";
+import Past from "./Past";
+import Upcoming from "./Upcoming";
+import Confirmed from "./Confirmed";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import Box from "./Box";
 
 const Bookings = () => {
   const [value, setValue] = useState('one');
@@ -29,13 +41,13 @@ const Bookings = () => {
 
   const renderContent = () => {
     if (value === 'one') {
-      return <Contacts/>;
+      return <Past/>;
     }
     if (value === 'two') {
-      return <Contacts/>;
+      return <Upcoming/>;
     }
     if (value === 'three') {
-      return <Contacts/>;
+      return <Confirmed/>;
     }  
   };
 
@@ -53,7 +65,7 @@ const Bookings = () => {
       >
         <Tab value="one" label="PAST" sx={{ fontSize: '1.2rem' }}/>
         <Tab value="two" label="UPCOMING" sx={{ fontSize: '1.2rem' }}/>
-        <Tab value="three" label="CANCELLED" sx={{ fontSize: '1.2rem' }}/>
+        <Tab value="three" label="CONFIRMED" sx={{ fontSize: '1.2rem' }}/>
       </Tabs>
       {renderContent()}
     </div>

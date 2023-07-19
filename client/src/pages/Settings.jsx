@@ -16,6 +16,7 @@ const Settings = () => {
     number: "",
     dob: "",
     gender: "",
+    location:""
   });
 
   useEffect(() => {
@@ -194,6 +195,18 @@ const Settings = () => {
             </div>
 
             <div className="form__group">
+            <div>
+                <label>Location</label>
+                <input
+                  required
+                  type="text"
+                  placeholder="Location"
+                  value={profileData.location}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, location: e.target.value })
+                  }
+                />
+              </div>
               <div className="profile__img-btns">
                 <button
                   className="setting__btn active__btn"
