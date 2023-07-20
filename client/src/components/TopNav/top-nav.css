@@ -83,16 +83,14 @@
 }
 
 .hiji {
+  /* Common button styles */
   border: none;
-  border: none;
-  padding: 7px 25px;
-  background: transparent;
-  border-radius: 5px;
+  padding: 4px 20px; /* Adjust padding as needed */
+  background: purple;
+  border-radius: 8px;
   color: var(--heading-color);
-  font-size: 1rem;
+  font-size: 1.0rem; /* Adjust font-size as needed */
   cursor: pointer;
-}
-
-.hlo {
-  background: #b7ffe913;
+  height: 40px; /* Adjust height as needed */
+  line-height: 1; /* Ensures vertical alignment of the text */
 }

@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { InputBase, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
-import profileImg from "../../assets/images/profile-02.png";
 import "./top-nav.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -56,18 +55,24 @@ const TopNav = () => {
           </Box>
 
           <div className="top__nav-right">
-          {isAuthenticated ? (
-            <button
-            className="hiji hlo"
-              onClick={() =>
-                logout({ logoutParams: { returnTo: window.location.origin } })
-              }
-            >
-              Log Out
-            </button>
-          ) : (
-            <button className="hiji hlo" onClick={() => loginWithRedirect()}>LogIn</button>
-          )}
+            {isAuthenticated ? (
+              <button
+                className="hiji hlo logout-button"
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                <i className="fa fa-sign-out-alt"></i> Log Out
+              </button>
+            ) : (
+              <button
+                className="hiji hlo login-button"
+                onClick={() => loginWithRedirect()}
+              >
+                Log In
+              </button>
+            )}
+
             <div className="notification">
               <Badge badgeContent={99} color="secondary">
                 <NotificationsIcon className="notification-icon" />

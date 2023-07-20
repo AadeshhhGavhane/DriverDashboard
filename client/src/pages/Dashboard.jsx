@@ -1,21 +1,19 @@
 import React from "react";
 import "../styles/dashboard.css";
 import SingleCard from "../components/reuseable/SingleCard";
-
 import MileChart from "../charts/MileChart";
 import CarStatsChart from "../charts/CarStatsChart";
 import RecommendCarCard from "../components/UI/RecommendCarCard";
-
 import recommendCarsData from "../assets/dummy-data/recommendCars";
 
 const carObj = {
-  title: "Total Cars",
+  title: "Monthly trips",
   totalNumber: 750,
   icon: "ri-police-car-line",
 };
 
 const tripObj = {
-  title: "Daily Trips",
+  title: "total Customers",
   totalNumber: 1697,
   icon: "ri-steering-2-line",
 };
@@ -28,7 +26,7 @@ const clientObj = {
 
 const distanceObj = {
   title: "Kilometers Daily",
-  totalNumber: 2167,
+  totalNumber: 543,
   icon: "ri-timer-flash-line",
 };
 
@@ -50,7 +48,7 @@ const Dashboard = () => {
           </div>
 
           <div className="stats">
-            <h3 className="stats__title">Car Statistics</h3>
+            <h3 className="stats__title">Weekly rides Statistics</h3>
             <CarStatsChart />
           </div>
         </div>

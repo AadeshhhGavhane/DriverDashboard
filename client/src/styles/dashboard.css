@@ -14,19 +14,19 @@
 }
 
 .single__card:nth-child(1) {
-  background: var(--card-01-bg);
+  background: darkturquoise;
 }
 
 .single__card:nth-child(2) {
-  background: var(--card-02-bg);
+  background: violet;
 }
 
 .single__card:nth-child(3) {
-  background: var(--card-03-bg);
+  background: yellowgreen;
 }
 
 .single__card:nth-child(4) {
-  background: var(--card-04-bg);
+  background: hotpink;
 }
 
 .card__content h4 {
@@ -136,3 +136,12 @@
   align-items: center;
   column-gap: 1rem;
 }
+
+/* New styles for recommend car images */
+.recommend__car-img img {
+  max-width: 100%;
+  max-height: 180px; /* Adjust the height as needed */
+  object-fit: contain;
+  background-color: transparent; /* Set a transparent background */
+}
+
